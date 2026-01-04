@@ -38,7 +38,7 @@ const Method: React.FC = () => {
              className="w-full h-full object-cover rounded-sm shadow-xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
            />
            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-regal-cream p-4 flex items-center justify-center rounded-full shadow-lg">
-             <span className="font-serif italic text-center text-slate-700 text-base">Semplicità &<br/>Natura</span>
+             <span className="font-serif italic text-center text-slate-700 text-base leading-tight">Naturalmente<br/>bella</span>
            </div>
         </div>
       </div>

@@ -3,10 +3,10 @@ import Section from './Section';
 import { Truck, MapPin } from 'lucide-react';
 
 const categories = [
-  { name: 'Viso', img: 'https://picsum.photos/id/106/400/400' },
-  { name: 'Corpo', img: 'https://picsum.photos/id/119/400/400' },
-  { name: 'Capelli', img: 'https://picsum.photos/id/250/400/400' },
-  { name: 'Oli essenziali', img: 'https://picsum.photos/id/312/400/400' },
+  { name: 'Viso', img: 'https://i.postimg.cc/QCdQsXgW/6.png' },
+  { name: 'Corpo', img: 'https://i.postimg.cc/6qbdpDz7/7.png' },
+  { name: 'Capelli', img: 'https://i.postimg.cc/VvZjk34X/8.png' },
+  { name: 'Oli essenziali', img: 'https://i.postimg.cc/2ySQmzdz/4.png' },
 ];
 
 const Products: React.FC = () => {

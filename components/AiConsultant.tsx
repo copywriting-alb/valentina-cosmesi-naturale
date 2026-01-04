@@ -218,18 +218,18 @@ const AiConsultant: React.FC = () => {
                                 {msg.role === 'model' && (
                                     <Sparkles size={16} className="absolute -top-2 -left-2 text-regal-gold bg-white rounded-full p-0.5" />
                                 )}
-                                <p className="text-lg leading-relaxed whitespace-pre-line">
+                                <div className="text-lg leading-relaxed whitespace-pre-line">
                                     {formatMessageText(msg.text)}
-                                </p>
+                                </div>
                                 
                                 {/* CTA Button inside Chat Bubble - Only show if model and NOT the first message */}
                                 {msg.role === 'model' && index > 0 && (
                                     <div className="mt-4 pt-3 border-t border-regal-gold/10">
                                         <a 
-                                            href="#contatti" 
+                                            href="#contact-form" 
                                             className="inline-flex items-center gap-2 px-5 py-2 bg-slate-800 text-white text-xs md:text-sm font-sans uppercase tracking-widest rounded-sm hover:bg-regal-gold transition-all shadow-md group w-full justify-center md:w-auto"
                                         >
-                                            <span>Compila il Modulo</span>
+                                            <span className="font-bold">COMPILA IL MODULO</span>
                                             <ArrowDownCircle size={16} className="group-hover:translate-y-1 transition-transform"/>
                                         </a>
                                     </div>

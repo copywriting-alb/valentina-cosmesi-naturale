@@ -9,8 +9,8 @@ const Workshops: React.FC = () => {
         <div className="order-2 md:order-1 relative">
           <div className="relative aspect-square rounded-sm overflow-hidden shadow-2xl border-8 border-regal-cream">
             <img 
-              src="https://picsum.photos/id/453/800/800" 
-              alt="Workshop di cosmesi naturale" 
+              src="https://i.postimg.cc/2kbfr49D/54d61870-cf6a-467b-987d-b19e2ada45bc.jpg" 
+              alt="Workshop di cosmesi naturale con Valentina" 
               className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-700"
             />
             <div className="absolute inset-0 bg-regal-gold/5 pointer-events-none"></div>

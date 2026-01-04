@@ -33,8 +33,8 @@ const Method: React.FC = () => {
         </div>
         <div className="relative h-full min-h-[400px]">
            <img 
-             src="https://picsum.photos/id/24/600/800" 
-             alt="Mani che curano una pianta" 
+             src="https://i.postimg.cc/tJ43yXd7/5.png" 
+             alt="Metodo Valentina Alberti - Ritualità Naturale" 
              className="w-full h-full object-cover rounded-sm shadow-xl grayscale-[20%] hover:grayscale-0 transition-all duration-700"
            />
            <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-regal-cream p-4 flex items-center justify-center rounded-full shadow-lg">

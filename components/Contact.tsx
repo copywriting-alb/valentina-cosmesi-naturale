@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
         </div>
 
         {/* Form */}
-        <div className="bg-white p-8 md:p-10 rounded-sm shadow-xl border-t-4 border-regal-gold">
+        <div id="contact-form" className="bg-white p-8 md:p-10 rounded-sm shadow-xl border-t-4 border-regal-gold">
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
             <div>
               <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Nome</label>

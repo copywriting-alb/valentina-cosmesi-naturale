@@ -10,8 +10,8 @@ const About: React.FC = () => {
         <div className="md:col-span-5 relative">
           <div className="grid grid-cols-2 gap-4">
              <img 
-              src="https://picsum.photos/id/360/400/500" 
-              alt="Dettaglio botanico" 
+              src="https://i.postimg.cc/PJ5Whtb5/2.png" 
+              alt="Dettaglio botanico e fiori" 
               className="rounded-sm shadow-md object-cover h-64 w-full mt-12"
             />
             <img 

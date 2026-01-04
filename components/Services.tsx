@@ -16,14 +16,14 @@ const services: ServiceItem[] = [
     title: 'Consulenza Aromaterapia',
     promise: 'Il potere degli oli essenziali per ritrovare equilibrio emotivo e fisico.',
     includes: ['Test olfattivo guidato', 'Elenco degli oli essenziali', 'Consigli di utilizzo quotidiano'],
-    duration: '45 min',
+    duration: '60 min',
   },
   {
     id: 'piante',
     title: 'Benessere con le Piante',
     promise: "Attraverso l'assorbimento cutaneo, i principi benefici delle piante portano giovamento al corpo.",
     includes: ['Sinergie fitocosmetiche', 'Tecniche di utilizzo', 'Rituali di bellezza botanica'],
-    duration: '50 min',
+    duration: '60 min',
   },
 ];
 
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       <div className="text-center mb-16 max-w-2xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-4">I Percorsi Gratuiti di Bellezza</h2>
         <p className="text-slate-600 font-sans text-lg">
-          Ogni viso ha una storia, ogni corpo un vissuto incarnato, ogni persona un'esigenza unica. Scegli il percorso gratuito che risuona di più con il tuo sentire attuale.
+          Ogni viso ha una story, ogni corpo un vissuto incarnato, ogni persona un'esigenza unica. Scegli il percorso gratuito che risuona di più con il tuo sentire attuale.
         </p>
       </div>
 

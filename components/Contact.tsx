@@ -41,37 +41,69 @@ const Contact: React.FC = () => {
 
         {/* Form */}
         <div id="contact-form" className="bg-white p-8 md:p-10 rounded-sm shadow-xl border-t-4 border-regal-gold">
-          <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-6" onSubmit={(e) => {
+            e.preventDefault();
+            alert("Richiesta inviata con successo! Valentina ti contatterà al più presto.");
+          }}>
             <div>
-              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Nome</label>
-              <input type="text" className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" placeholder="Il tuo nome" />
+              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Nome *</label>
+              <input 
+                required 
+                type="text" 
+                className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" 
+                placeholder="Il tuo nome" 
+              />
             </div>
             
-            <div>
-              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Email o Telefono</label>
-              <input type="text" className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" placeholder="I tuoi contatti" />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Email *</label>
+                <input 
+                  required 
+                  type="email" 
+                  className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" 
+                  placeholder="la-tua@email.it" 
+                />
+              </div>
+              <div>
+                <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Telefono *</label>
+                <input 
+                  required 
+                  type="tel" 
+                  className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" 
+                  placeholder="Il tuo numero" 
+                />
+              </div>
             </div>
 
             <div>
-              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Di cosa hai bisogno?</label>
-              <select className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-slate-700 text-lg">
-                <option>Seleziona un servizio...</option>
-                <option>Skin Test & Skincare</option>
-                <option>Aromaterapia</option>
-                <option>Benessere Piante</option>
-                <option>Workshop & Eventi</option>
-                <option>Info Generali</option>
+              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Di cosa hai bisogno? *</label>
+              <select 
+                required 
+                className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-slate-700 text-lg"
+              >
+                <option value="">Seleziona un servizio...</option>
+                <option value="skin-test">Skin Test & Skincare</option>
+                <option value="aromaterapia">Aromaterapia</option>
+                <option value="piante">Benessere Piante</option>
+                <option value="workshop">Workshop & Eventi</option>
+                <option value="generali">Info Generali</option>
               </select>
             </div>
 
             <div>
-              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Messaggio</label>
-              <textarea rows={4} className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" placeholder="Raccontami brevemente..."></textarea>
+              <label className="block text-sm uppercase tracking-widest text-slate-500 mb-2">Messaggio (Opzionale)</label>
+              <textarea 
+                rows={4} 
+                className="w-full bg-slate-50 border border-slate-200 p-3 rounded-sm focus:outline-none focus:border-regal-gold transition-colors text-lg" 
+                placeholder="Raccontami brevemente..."
+              ></textarea>
             </div>
 
-            <button className="w-full py-4 bg-slate-800 text-white font-serif uppercase tracking-widest rounded-sm hover:bg-slate-700 transition-all shadow-lg text-lg">
+            <button type="submit" className="w-full py-4 bg-slate-800 text-white font-serif uppercase tracking-widest rounded-sm hover:bg-slate-700 transition-all shadow-lg text-lg">
               Invia Richiesta
             </button>
+            <p className="text-xs text-slate-400 text-center">* Campi obbligatori</p>
           </form>
         </div>
       </div>

@@ -16,7 +16,7 @@ const Hero: React.FC = () => {
           {/* Text Content - Part 1: Header & Buttons */}
           <div className="order-1 text-center md:text-left space-y-6">
             <span className="inline-block px-4 py-1.5 border border-slate-300 rounded-full text-sm tracking-[0.2em] text-slate-500 uppercase bg-white/50 backdrop-blur-sm">
-              Consulente di Cosmesi Naturale
+              Cosmesi botanica
             </span>
             
             <h1 className="font-serif text-4xl md:text-6xl text-slate-800 leading-tight">
@@ -43,7 +43,7 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual Content - Updated with user provided image */}
+          {/* Visual Content */}
           <div className="order-2 md:row-span-2 relative">
              <div className="relative aspect-[3/4] md:aspect-[4/5] w-full max-w-md mx-auto rounded-t-[100px] rounded-b-lg overflow-hidden shadow-2xl border-4 border-white">
                 <img 
@@ -54,27 +54,27 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent"></div>
              </div>
              {/* Floating Badge */}
-             <div className="absolute -bottom-6 -left-6 md:bottom-10 md:-left-10 bg-white p-6 shadow-xl rounded-sm max-w-[200px] hidden md:block">
+             <div className="absolute -bottom-6 -left-6 md:bottom-10 md:-left-10 bg-white p-6 shadow-xl rounded-sm max-w-[200px] hidden md:block border-l-4 border-regal-gold">
                 <p className="font-serif italic text-slate-800 text-lg leading-snug">
                   "La bellezza non è perfezione, è armonia."
                 </p>
              </div>
           </div>
 
-          {/* Text Content - Part 2: Highlights (Stars) - Order 3 on Mobile */}
+          {/* Text Content - Part 2: Highlights */}
           <div className="order-3 md:order-2 pt-4 md:pt-0">
             <div className="border-t border-slate-200 pt-8 flex flex-wrap gap-4 md:gap-8 justify-center md:justify-start text-sm md:text-base font-sans text-slate-500 tracking-wide uppercase">
               <span className="flex items-center gap-2">
-                <Star size={16} className="text-regal-gold" /> Consulenze Personalizzate
+                <Star size={16} className="text-regal-gold" /> skincare
               </span>
               <span className="flex items-center gap-2">
-                <Star size={16} className="text-regal-gold" /> Approccio Naturale
+                <Star size={16} className="text-regal-gold" /> Aromaterapia & Fitoterapia
               </span>
               <span className="flex items-center gap-2">
-                <Star size={16} className="text-regal-gold" /> Ritualità Concreta
+                <Star size={16} className="text-regal-gold" /> Incaricata Gialean
               </span>
               <span className="flex items-center gap-2">
-                <Star size={16} className="text-regal-gold" /> Padova, Vicenza, online
+                <Star size={16} className="text-regal-gold" /> Padova, Vicenza
               </span>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from './Section';
-import { Heart, Feather, Sun, Leaf } from 'lucide-react';
+import { Heart, Feather, Sun, Leaf, BookOpen, Award } from 'lucide-react';
 
 const About: React.FC = () => {
   return (
@@ -25,14 +25,25 @@ const About: React.FC = () => {
 
         {/* Right Col: Text */}
         <div className="md:col-span-7 space-y-8">
-          <h2 className="text-3xl md:text-4xl font-serif text-slate-800">
-            Chi sono
-          </h2>
+          <div>
+            <h2 className="text-3xl md:text-4xl font-serif text-slate-800 mb-2">
+              Chi sono
+            </h2>
+            <p className="text-regal-gold font-sans uppercase tracking-widest text-sm mb-6">Cosmesi botanica</p>
+          </div>
           
-          <div className="space-y-4 font-sans text-slate-600 leading-relaxed text-xl">
+          <div className="space-y-6 font-sans text-slate-600 leading-relaxed text-lg">
              <p>
                Sono Valentina Alberti, e credo fermamente nel potere rigenerante della natura. Il mio viaggio nel mondo della cosmesi naturale non è nato solo da una passione estetica, ma da un desiderio profondo di riconnessione con i ritmi lenti e gentili che spesso dimentichiamo.
              </p>
+             <div className="bg-slate-50 p-6 border border-slate-100 rounded-sm">
+               <h4 className="font-serif text-xl text-slate-800 mb-3 flex items-center gap-2">
+                 <Award size={20} className="text-regal-gold" /> Professionalità e Formazione
+               </h4>
+               <p className="italic">
+                 Oltre alla mia attività come <strong>incaricata alla vendita per l'azienda italiana Gialean</strong>, ho coltivato una <strong>formazione indipendente in aromaterapia, fitoterapia e massaggio estetico</strong>. Questa sinergia di competenze mi permette di offrirti un <strong>approccio olistico alla cosmesi</strong>, che va oltre la semplice superficie della pelle.
+               </p>
+             </div>
              <p>
                Come in una danza d'altri tempi, accompagno chi si affida a me alla scoperta di una bellezza che non grida, ma sussurra eleganza e salute.
              </p>

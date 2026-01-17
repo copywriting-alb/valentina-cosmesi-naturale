@@ -1,6 +1,6 @@
 import React from 'react';
 import Section from './Section';
-import { Truck, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 
 const categories = [
   { name: 'Viso', img: 'https://i.postimg.cc/QCdQsXgW/6.png' },
@@ -12,11 +12,17 @@ const categories = [
 const Products: React.FC = () => {
   return (
     <Section id="prodotti" bg="cream">
+      {/* Bridge Sentence */}
+      <div className="max-w-3xl mx-auto text-center mb-16 px-4">
+        <p className="font-serif italic text-xl md:text-2xl text-slate-700 leading-relaxed border-b border-regal-gold/20 pb-8">
+          “Al termine degli incontri, chi lo desidera può acquistare i prodotti Gialean tramite la mia attività di incaricata alla vendita.”
+        </p>
+      </div>
+
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-4">La Selezione Gialean</h2>
         <p className="text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed text-lg">
-          Per la tua cura quotidiana ho scelto l'eccellenza di <strong>Gialean</strong>, azienda italiana di cosmesi naturale personalizzata. 
-          Ti propongo preparati da applicare sulla pelle, preziosi e con un prezzo equo, formulati per trasferire tutta la virtù degli estratti vegetali direttamente alla tua bellezza.
+          Collaboro come incaricata alla vendita per l’azienda italiana <strong>Gialean</strong>, distribuendo prodotti per la cura cosmetica quotidiana. Li ho scelti dopo un percorso personale di riequilibrio della pelle e oggi li propongo a chi cerca formule botaniche essenziali, rispettose e dal valore equo, per un rituale di bellezza naturale ogni giorno.
         </p>
       </div>
 
@@ -39,28 +45,16 @@ const Products: React.FC = () => {
         ))}
       </div>
 
-      <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      <div className="mt-12 max-w-2xl mx-auto">
         {/* Delivery Info */}
-        <div className="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex items-start gap-4">
+        <div className="bg-white p-8 rounded-sm border border-slate-100 shadow-sm flex items-start gap-6">
           <div className="text-regal-gold flex-shrink-0">
-            <MapPin size={24} />
+            <MapPin size={32} />
           </div>
           <div>
-            <h4 className="font-serif text-lg text-slate-800 mb-1">Consegna a domicilio</h4>
-            <p className="text-sm text-slate-600 font-sans">
-              Effettuo personalmente la consegna nelle zone di <strong>Padova e Vicenza</strong>.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-white p-6 rounded-sm border border-slate-100 shadow-sm flex items-start gap-4">
-          <div className="text-regal-gold flex-shrink-0">
-            <Truck size={24} />
-          </div>
-          <div>
-            <h4 className="font-serif text-lg text-slate-800 mb-1">Altre città</h4>
-            <p className="text-sm text-slate-600 font-sans">
-              Per le altre province, la spedizione avviene tramite <strong>corriere espresso</strong> con un piccolo contributo spese.
+            <h4 className="font-serif text-2xl text-slate-800 mb-2">Consegna a domicilio</h4>
+            <p className="text-lg text-slate-600 font-sans">
+              Effettuo personalmente la consegna dei prodotti Gialean nelle zone di <strong>Padova e Vicenza</strong>, garantendo cura e attenzione per ogni ordine.
             </p>
           </div>
         </div>

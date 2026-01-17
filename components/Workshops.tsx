@@ -29,7 +29,7 @@ const Workshops: React.FC = () => {
             <span className="text-regal-gold font-sans uppercase tracking-[0.3em] text-sm block mb-2">natura condivisa</span>
             <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-6">Workshop & Eventi</h2>
             <p className="text-slate-600 font-sans text-lg leading-relaxed">
-              Oltre alle consulenze singole, porto l'eleganza e i segreti di Gialean nei vostri spazi preferiti. Che sia un pomeriggio tra amiche o un evento esclusivo in boutique, trasformeremo la skincare in un'esperienza sensoriale collettiva.
+              Che sia un pomeriggio tra amiche o un evento esclusivo in boutique, trasformeremo la skincare in un'esperienza sensoriale collettiva.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ const Workshops: React.FC = () => {
               <div>
                 <h4 className="font-serif text-2xl text-slate-800 mb-2">Consulenze Speed</h4>
                 <p className="text-slate-600 text-lg">
-                  L'ideale per eventi, inaugurazioni o giornate speciali in negozio. Analisi rapide e mirate per regalare un tocco di consapevolezza Gialean ai tuoi ospiti.
+                  L'ideale per eventi, inaugurazioni o giornate speciali in negozio. Analisi rapide e mirate per regalare un tocco di consapevolezza ai tuoi ospiti.
                 </p>
               </div>
             </div>

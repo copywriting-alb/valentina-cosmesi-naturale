@@ -11,6 +11,7 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import AiConsultant from './components/AiConsultant';
+import DownloadResources from './components/DownloadResources';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Method />
         <Products />
         <Workshops />
+        <DownloadResources />
         <AiConsultant />
         <Testimonials />
         <FAQ />

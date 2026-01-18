@@ -13,7 +13,7 @@ const AiConsultant: React.FC = () => {
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: 'model', 
-      text: 'Carissima Lettrice, sono Lady V, l’assistente AI di questo sito. Posso aiutarti a orientarti tra i percorsi di cosmesi botanica e a prenotare un incontro di persona a Padova o Vicenza.\n\nQui fornisco solo informazioni generali: per esigenze specifiche, Valentina ti seguirà direttamente durante l’incontro.' 
+      text: 'Benvenuta, cara Lettrice 🌿\n\nSono Lady V, l’assistente virtuale di Valentina. Posso accompagnarti con garbo tra i percorsi di Cosmesi botanica e aiutarti a prenotare un incontro di persona a Padova o Vicenza.\n\nQui offro solo informazioni generali e orientamento: per ogni esigenza personale, Valentina ti seguirà direttamente durante l’incontro.' 
     }
   ]);
   const [isLoading, setIsLoading] = useState(false);
@@ -40,6 +40,12 @@ const AiConsultant: React.FC = () => {
     const textToSend = customMessage || input;
     if (!textToSend.trim() || !process.env.API_KEY) return;
 
+    // Se l'utente clicca su "Prenota un incontro", lo portiamo direttamente ai contatti invece di interrogare l'IA
+    if (textToSend.includes("Prenota un incontro")) {
+      window.location.href = "#contatti";
+      return;
+    }
+
     const userMessage = textToSend;
     if (!customMessage) setInput('');
     
@@ -61,22 +67,29 @@ const AiConsultant: React.FC = () => {
             Sei Lady V, l'assistente AI sofisticata di Valentina Alberti.
             Tono: Bridgerton (aulico, elegante, confidenziale). Usa "Carissima Lettrice" o "Gentile Dama".
 
-            REGOLE TASSATIVE (SCRIPT OBBLIGATORI):
+            COSA PUOI FARE (EDUCAZIONE E DIVULGAZIONE):
+            - Spiegare cos'è l'aromaterapia e il potere degli oli essenziali.
+            - Spiegare la filosofia del brand Gialean (cosmesi naturale italiana di alta qualità).
+            - Educare sul senso della skincare botanica, della tricologia (cura dei capelli) e del benessere del corpo attraverso le piante.
+            - Raccontare il metodo di Valentina (ascolto, ritualità, costanza).
+            - Invitare a scaricare le guide PDF disponibili sul sito.
 
-            1. SE L'UTENTE SCRIVE DI UN PROBLEMA CUTANEO (es: pelle secca, dermatite, rossori, pruriti, acne):
-               Rispondi ESCLUSIVAMENTE with: "Capisco. Qui posso solo darti informazioni generali: per situazioni personali è importante parlarne direttamente con Valentina durante un incontro. Vuoi che ti aiuti a prenotare?"
-               STOP. NESSUNA SPIEGAZIONE. NESSUNA AGGIUNTA.
+            COSA NON PUOI MAI FARE (RESTRIZIONI TASSATIVE):
+            - NON puoi mai dire cosa è giusto per l'utente specifico (es: "Per te va bene questo").
+            - NON puoi collegare concetti a problemi reali o sintomi descritti dall'utente.
+            - NON puoi fornire diagnosi o pareri medici.
 
-            2. RIFERIMENTO AL BRAND GIALEAN:
-               Inserisci questo testo UNA SOLA VOLTA nella conversazione se pertinente:
-               "Valentina collabora come incaricata alla vendita per l’azienda italiana Gialean. L’eventuale scelta dei prodotti avviene solo dopo l’incontro, se lo desideri."
+            GESTIONE INPUT A RISCHIO (OBBLIGATORIA):
+            Se l'utente scrive o accenna a: "pelle secca", "dermatite", "acne", "rossori", "prurito", "macchie", "allergie" o qualsiasi altro problema cutaneo/salute:
+            Rispondi SEMPRE E SOLTANTO con questo script esatto:
+            "Capisco, cara Lettrice.
+            Qui posso offrirti solo informazioni generali: per situazioni personali è importante parlarne direttamente con Valentina durante un incontro di persona.
+            Vuoi che ti aiuti a prenotare?"
+            
+            IMPORTANTE: NON aggiungere altro testo, spiegazione o suggerimento se attivi lo script sopra.
 
-            3. SE L'UTENTE SCRIVE DI PROBLEMI MEDICI SERI:
-               Rispondi: "Meglio parlarne in un incontro". STOP.
-
-            4. AZIONI GENERALI:
-               - Promuovi gli incontri di persona a Padova e Vicenza.
-               - Sii sintetica e non chiedere mai dati personali (email/tel).
+            RIFERIMENTO GIALEAN:
+            Se si parla di prodotti, ricorda: "Valentina collabora come incaricata alla vendita per l’azienda italiana Gialean. L’eventuale scelta dei prodotti avviene solo dopo l’incontro, se lo desideri."
           `,
         }
       });
@@ -100,9 +113,13 @@ const AiConsultant: React.FC = () => {
   };
 
   const suggestions = [
-    "Ti interessa di più skincare, aromaterapia o un workshop?",
-    "Preferisci Padova o Vicenza?",
-    "Vuoi prenotare un incontro o ricevere informazioni sui percorsi gratuiti?"
+    "🫧 Skincare viso",
+    "💕 Capelli",
+    "✨ Bellezza del corpo",
+    "🌿 Aromaterapia",
+    "🌸 Workshop & Eventi",
+    "📖 Curiosità e informazioni utili",
+    "➡️ Prenota un incontro"
   ];
 
   return (
@@ -115,11 +132,11 @@ const AiConsultant: React.FC = () => {
                 </div>
                 <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-4 tracking-tight">Lady V</h2>
                 <p className="text-slate-600 font-sans text-lg italic max-w-2xl mx-auto">
-                    "L'assistente virtuale sempre pronta a risponderti"
+                    "L'assistente virtuale esperta in cosmesi botanica"
                 </p>
             </div>
             
-            <div className="bg-white rounded-sm shadow-xl border-4 border-double border-regal-gold/30 overflow-hidden flex flex-col h-[650px] relative">
+            <div className="bg-white rounded-sm shadow-xl border-4 border-double border-regal-gold/30 overflow-hidden flex flex-col h-[700px] relative">
                 <div ref={scrollRef} className="flex-1 p-6 overflow-y-auto space-y-6 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] bg-repeat">
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -136,16 +153,19 @@ const AiConsultant: React.FC = () => {
 
                                 {msg.role === 'model' && index === 0 && (
                                     <div className="mt-6 flex flex-col gap-2">
-                                        <p className="text-xs text-slate-400 uppercase tracking-widest mb-1">Domande Suggerite:</p>
-                                        {suggestions.map((sug, sIdx) => (
-                                            <button 
-                                                key={sIdx}
-                                                onClick={() => handleSend(sug)}
-                                                className="text-left bg-white border border-regal-gold/30 px-4 py-2 text-sm rounded-sm text-slate-700 hover:bg-regal-gold hover:text-white transition-all font-sans italic shadow-sm"
-                                            >
-                                                {sug}
-                                            </button>
-                                        ))}
+                                        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Da dove desideri iniziare oggi?</p>
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                          {suggestions.map((sug, sIdx) => (
+                                              <button 
+                                                  key={sIdx}
+                                                  onClick={() => handleSend(sug)}
+                                                  className="text-left bg-white border border-regal-gold/30 px-4 py-2 text-sm rounded-sm text-slate-700 hover:bg-regal-gold hover:text-white transition-all font-sans italic shadow-sm flex items-center justify-between group"
+                                              >
+                                                  <span>{sug}</span>
+                                                  <Sparkles size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
+                                              </button>
+                                          ))}
+                                        </div>
                                     </div>
                                 )}
 

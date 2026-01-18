@@ -8,8 +8,11 @@ interface Message {
   text: string;
 }
 
+type MenuState = 'main' | 'curiosities';
+
 const AiConsultant: React.FC = () => {
   const [input, setInput] = useState('');
+  const [menuState, setMenuState] = useState<MenuState>('main');
   const [messages, setMessages] = useState<Message[]>([
     { 
       role: 'model', 
@@ -40,9 +43,20 @@ const AiConsultant: React.FC = () => {
     const textToSend = customMessage || input;
     if (!textToSend.trim() || !process.env.API_KEY) return;
 
-    // Se l'utente clicca su "Prenota un incontro", lo portiamo direttamente ai contatti invece di interrogare l'IA
-    if (textToSend.includes("Prenota un incontro")) {
-      window.location.href = "#contatti";
+    // Gestione navigazione e CTA
+    if (textToSend.includes("Prenota un incontro") || textToSend.includes("Preferisco prenotare") || textToSend.includes("Incontra Valentina")) {
+      const element = document.getElementById('contatti');
+      if (element) element.scrollIntoView({ behavior: 'smooth' });
+      return;
+    }
+
+    if (textToSend.includes("Curiosità e informazioni utili")) {
+      setMenuState('curiosities');
+      setMessages(prev => [...prev, 
+        { role: 'user', text: textToSend },
+        { role: 'model', text: 'Desideri scoprire qualcosa in più, mia cara? Ho preparato per Te alcuni argomenti che potrebbero solleticare il Tuo interesse per il mondo botanico.' }
+      ]);
+      setInput('');
       return;
     }
 
@@ -65,31 +79,31 @@ const AiConsultant: React.FC = () => {
         config: {
             systemInstruction: `
             Sei Lady V, l'assistente AI sofisticata di Valentina Alberti.
-            Tono: Bridgerton (aulico, elegante, confidenziale). Usa "Carissima Lettrice" o "Gentile Dama".
+            Tono: Bridgerton (aulico, elegante, confidenziale, ispirazionale).
+            Obiettivo Finale: La chat deve far nascere una domanda elegante, non dare una risposta pratica. Se l'utente pensa "che bello", "mi rispecchio", "voglio viverlo", hai vinto.
 
-            COSA PUOI FARE (EDUCAZIONE E DIVULGAZIONE):
-            - Spiegare cos'è l'aromaterapia e il potere degli oli essenziali.
-            - Spiegare la filosofia del brand Gialean (cosmesi naturale italiana di alta qualità).
-            - Educare sul senso della skincare botanica, della tricologia (cura dei capelli) e del benessere del corpo attraverso le piante.
-            - Raccontare il metodo di Valentina (ascolto, ritualità, costanza).
-            - Invitare a scaricare le guide PDF disponibili sul sito.
-
-            COSA NON PUOI MAI FARE (RESTRIZIONI TASSATIVE):
-            - NON puoi mai dire cosa è giusto per l'utente specifico (es: "Per te va bene questo").
-            - NON puoi collegare concetti a problemi reali o sintomi descritti dall'utente.
-            - NON puoi fornire diagnosi o pareri medici.
-
-            GESTIONE INPUT A RISCHIO (OBBLIGATORIA):
-            Se l'utente scrive o accenna a: "pelle secca", "dermatite", "acne", "rossori", "prurito", "macchie", "allergie" o qualsiasi altro problema cutaneo/salute:
-            Rispondi SEMPRE E SOLTANTO con questo script esatto:
+            GESTIONE INPUT A RISCHIO (OBBLIGATORIA E PRIORITARIA):
+            Se l'utente scrive frasi come "Ho la pelle secca", "Ho la dermatite", "Ho l'acne", "Ho rossori", "Ho problemi", "Cosa mi consigli per...", o nomina qualsiasi disturbo/problema reale:
+            Rispondi SEMPRE E SOLTANTO così, SENZA AGGIUNGERE ALTRO:
             "Capisco, cara Lettrice.
             Qui posso offrirti solo informazioni generali: per situazioni personali è importante parlarne direttamente con Valentina durante un incontro di persona.
             Vuoi che ti aiuti a prenotare?"
-            
-            IMPORTANTE: NON aggiungere altro testo, spiegazione o suggerimento se attivi lo script sopra.
+
+            LINEE GUIDA PER LE 6 AREE TEMATICHE:
+            1. CULTURA BOTANICA: Spiega cos'è la cosmesi botanica, la differenza tra naturale/botanico/green. Racconta la storia (antichità, monasteri) e il valore della lentezza. Non spiegare "come fare".
+            2. AROMATERAPIA (LIVELLO CULTURALE): Cos'è l'aromaterapia in senso generale. Origine degli oli. Legame tra profumo, memoria ed emozioni. È un linguaggio sensoriale. EVITA riferimenti a disturbi, benefici specifici o usi pratici.
+            3. SKINCARE (EDUCAZIONE): Spiega perché è un gesto di costanza e la differenza tra routine e rituale. Parla dell'ascolto della pelle come concetto. "Meno è meglio". Ispira, non suggerire prodotti.
+            4. RITUALI & LIFESTYLE: Bellezza come armonia, non perfezione. Il tempo per sé come forma di rispetto. Esperienza sensoriale.
+            5. DIETRO LE QUINTE: Spiega cos'è l'incontro di persona, l'esperienza di calma e ascolto. Spiega perché non avviene online (necessità di osservazione reale).
+            6. L'AZIENDA (GIALEAN): Presenta Gialean, il valore dell'artigianalità e del prezzo equo. Spiega che la scelta dei prodotti avviene solo dopo l'incontro. MAI dire "perché è la migliore" o "ideale per...".
+
+            REGOLE COMPORTAMENTALI:
+            - SI: Divulgazione, cultura, ispirazione, filosofia del benessere.
+            - NO: Dire cosa è giusto per l'utente ("Per te va bene questo"), collegare concetti a problemi reali, dosaggi, frequenze, miscele.
+            - Se una curiosità può generare la domanda "E quindi è adatto a me?", NON usarla.
 
             RIFERIMENTO GIALEAN:
-            Se si parla di prodotti, ricorda: "Valentina collabora come incaricata alla vendita per l’azienda italiana Gialean. L’eventuale scelta dei prodotti avviene solo dopo l’incontro, se lo desideri."
+            "Valentina collabora come incaricata alla vendita per l’azienda italiana Gialean. L’eventuale scelta dei prodotti avviene solo dopo l’incontro, se lo desideri."
           `,
         }
       });
@@ -112,7 +126,7 @@ const AiConsultant: React.FC = () => {
     }
   };
 
-  const suggestions = [
+  const mainSuggestions = [
     "🫧 Skincare viso",
     "💕 Capelli",
     "✨ Bellezza del corpo",
@@ -121,6 +135,18 @@ const AiConsultant: React.FC = () => {
     "📖 Curiosità e informazioni utili",
     "➡️ Prenota un incontro"
   ];
+
+  const curiositySuggestions = [
+    "🌿 Cosmesi botanica: che cos’è davvero",
+    "🌸 Aromaterapia: un linguaggio sensoriale",
+    "🧴 Skincare: routine o rituale?",
+    "🕯️ Rituali di bellezza nel tempo",
+    "🧺 Come si svolge un incontro",
+    "🏛️ Scopri Gialean",
+    "💫 Preferisco prenotare"
+  ];
+
+  const currentSuggestions = menuState === 'main' ? mainSuggestions : curiositySuggestions;
 
   return (
     <Section id="ai-consultant" bg="cream" className="relative overflow-hidden border-y border-regal-gold/10">
@@ -136,7 +162,7 @@ const AiConsultant: React.FC = () => {
                 </p>
             </div>
             
-            <div className="bg-white rounded-sm shadow-xl border-4 border-double border-regal-gold/30 overflow-hidden flex flex-col h-[700px] relative">
+            <div className="bg-white rounded-sm shadow-xl border-4 border-double border-regal-gold/30 overflow-hidden flex flex-col h-[750px] relative">
                 <div ref={scrollRef} className="flex-1 p-6 overflow-y-auto space-y-6 bg-[url('https://www.transparenttextures.com/patterns/cream-paper.png')] bg-repeat">
                     {messages.map((msg, index) => (
                         <div key={index} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
@@ -151,11 +177,13 @@ const AiConsultant: React.FC = () => {
                                   </div>
                                 )}
 
-                                {msg.role === 'model' && index === 0 && (
+                                {(msg.role === 'model' && (index === 0 || (index === 2 && menuState === 'curiosities'))) && (
                                     <div className="mt-6 flex flex-col gap-2">
-                                        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">Da dove desideri iniziare oggi?</p>
+                                        <p className="text-xs text-slate-400 uppercase tracking-widest mb-2 font-bold">
+                                          {menuState === 'main' ? "Da dove desideri iniziare oggi?" : "Desideri scoprire qualcosa in più?"}
+                                        </p>
                                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                          {suggestions.map((sug, sIdx) => (
+                                          {currentSuggestions.map((sug, sIdx) => (
                                               <button 
                                                   key={sIdx}
                                                   onClick={() => handleSend(sug)}
@@ -166,15 +194,26 @@ const AiConsultant: React.FC = () => {
                                               </button>
                                           ))}
                                         </div>
+                                        {menuState === 'curiosities' && (
+                                          <button 
+                                            onClick={() => setMenuState('main')}
+                                            className="text-xs text-regal-gold underline mt-2 self-start hover:text-slate-800 transition-colors"
+                                          >
+                                            Torna al menu principale
+                                          </button>
+                                        )}
                                     </div>
                                 )}
 
                                 {msg.role === 'model' && index > 0 && (
                                     <div className="mt-4 pt-3 border-t border-regal-gold/10 text-center md:text-left">
-                                        <a href="#contact-form" className="inline-flex items-center gap-2 px-5 py-2 bg-slate-800 text-white text-xs md:text-sm font-sans uppercase tracking-widest rounded-sm hover:bg-regal-gold transition-all shadow-md group w-full justify-center md:w-auto">
+                                        <button 
+                                          onClick={() => handleSend("Incontra Valentina")}
+                                          className="inline-flex items-center gap-2 px-5 py-2 bg-slate-800 text-white text-xs md:text-sm font-sans uppercase tracking-widest rounded-sm hover:bg-regal-gold transition-all shadow-md group w-full justify-center md:w-auto"
+                                        >
                                             <span className="font-bold uppercase tracking-widest">Incontra Valentina</span>
                                             <ArrowDownCircle size={16} className="group-hover:translate-y-1 transition-transform"/>
-                                        </a>
+                                        </button>
                                     </div>
                                 )}
                             </div>

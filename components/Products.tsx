@@ -22,7 +22,7 @@ const Products: React.FC = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-4">La Selezione Gialean</h2>
         <p className="text-slate-600 font-sans max-w-2xl mx-auto leading-relaxed text-lg">
-          Collaboro come incaricata alla vendita per l’azienda italiana <strong>Gialean</strong>, distribuendo prodotti per la cura cosmetica quotidiana. Li ho scelti dopo un percorso personale di riequilibrio della pelle e oggi li propongo a chi cerca formule botaniche essenziali, rispettose e dal valore equo, per un rituale di bellezza naturale ogni giorno.
+          Collaboro come incaricata alla vendita per l’azienda italiana <strong>Gialean</strong>, distribuendo prodotti per la cura cosmetica quotidiana. Li ho scelti dopo un percorso personale di riequilibrio della pelle: oggi li propongo a chi cerca formulazioni naturali, di altissima qualità, con un prezzo equo.
         </p>
       </div>
 

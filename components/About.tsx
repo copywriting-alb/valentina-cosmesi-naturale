@@ -60,19 +60,19 @@ const About: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-slate-50 rounded-full text-regal-gold"><Feather size={24}/></div>
-                <span className="text-base font-semibold text-slate-700">Ascolto Empatico</span>
+                <span className="text-base font-semibold text-slate-700">Ascolto empatico</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-slate-50 rounded-full text-regal-gold"><Sun size={24}/></div>
-                <span className="text-base font-semibold text-slate-700">Costanza Gentile</span>
+                <span className="text-base font-semibold text-slate-700">Costanza gentile</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-slate-50 rounded-full text-regal-gold"><Leaf size={24}/></div>
-                <span className="text-base font-semibold text-slate-700">Pura Naturalezza</span>
+                <span className="text-base font-semibold text-slate-700">Pura naturalezza</span>
               </div>
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-slate-50 rounded-full text-regal-gold"><Heart size={24}/></div>
-                <span className="text-base font-semibold text-slate-700">Rituale Su Misura</span>
+                <span className="text-base font-semibold text-slate-700">Rituale su misura</span>
               </div>
             </div>
           </div>

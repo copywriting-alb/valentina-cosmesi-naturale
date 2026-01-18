@@ -8,13 +8,13 @@ const services: ServiceItem[] = [
     id: 'skintest',
     title: 'Skin Test & Skincare',
     promise: 'Un’analisi approfondita per comprendere il linguaggio unico della tua pelle.',
-    includes: ['Analisi tipologia cutanea', 'Revisione beauty routine attuale', 'suggerimenti coerenti con il percorso'],
+    includes: ['Analisi tipologia cutanea', 'Revisione beauty routine attuale', 'Suggerimenti personalizzati'],
     duration: '60 min',
   },
   {
     id: 'aromaterapia',
     title: 'Aromaterapia',
-    promise: 'Il potere degli oli essenziali per ritrovare equilibrio emotivo e fisico.',
+    promise: "Il potere degli oli essenziali, l'anima delle piante, per ritrovare equilibrio emotivo e fisico.",
     includes: ['Test olfattivo guidato', 'Informazione sugli oli essenziali', 'Possibilità di utilizzo quotidiano'],
     duration: '60 min',
   },
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       <div className="text-center mb-16 max-w-2xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-serif text-slate-800 mb-4">I Percorsi Gratuiti di Bellezza</h2>
         <p className="text-slate-600 font-sans text-lg">
-          Ogni viso ha una storia, ogni corpo un vissuto incarnato, ogni persona un'esigenza unica. Scegli il percorso gratuito che risuona di più con il tuo sentire attuale.
+          Ogni viso ha una story, ogni corpo un vissuto incarnato, ogni persona un'esigenza unica. Scegli il percorso gratuito che risuona di più con il tuo sentire attuale.
         </p>
       </div>
 
